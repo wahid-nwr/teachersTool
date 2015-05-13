@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config> 
+  <form-beans> 
+    <form-bean name="loginForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="authDTO" type="com.swiftcorp.portal.common.login.dto.LoginDTO"/> 
+    </form-bean>  
+    <form-bean name="userForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="user" type="com.swiftcorp.portal.user.dto.UserDTO"/>  
+      <form-property name="role" type="java.lang.Long"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of ROLE-->  
+    <form-bean name="roleForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="role" type="com.swiftcorp.portal.role.dto.RoleDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <form-bean name="roleFunctionForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="role" type="java.lang.String"/>  
+      <form-property name="checkedIndex" type="java.lang.String"/>  
+      <!--  <form-property name="functionList" type="com.swiftcorp.portal.role.web.FunctionList"/>--> 
+    </form-bean>  
+    <!--Bean defination of GROUP-->  
+    <form-bean name="groupForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="group" type="com.swiftcorp.portal.group.dto.GroupDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of GEO-->  
+    <form-bean name="geoForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="geo" type="com.swiftcorp.portal.geo.dto.GeoDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of HOME-->  
+    <form-bean name="homeForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="home" type="com.swiftcorp.portal.home.dto.HomeDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of INFO-->  
+    <form-bean name="infoForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="info" type="com.swiftcorp.portal.info.dto.InfoDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+      
+    <!--Bean defination of MODULE-->  
+    <form-bean name="moduleForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="module" type="com.swiftcorp.portal.module.dto.ModuleDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+      
+    <!--Bean defination of MAILINFO-->  
+    <form-bean name="mailinfoForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="mailinfo" type="com.swiftcorp.portal.mailinfo.dto.MailinfoDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of EMAIL-->  
+    <form-bean name="emailForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="email" type="com.swiftcorp.portal.email.dto.EmailDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of EMAILDTL-->  
+    <form-bean name="emaildtlForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="emaildtl" type="com.swiftcorp.portal.emaildtl.dto.EmaildtlDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of EMAILGROUP-->  
+    <form-bean name="emailgroupForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="emailgroup" type="com.swiftcorp.portal.emailgroup.dto.EmailgroupDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of EMAILREFERANCE-->  
+    <form-bean name="emailreferanceForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="emailreferance" type="com.swiftcorp.portal.emailreferance.dto.EmailreferanceDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of EMAILRECIPIENTS-->  
+    <form-bean name="emailrecipientsForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="emailrecipients" type="com.swiftcorp.portal.emailrecipients.dto.EmailrecipientsDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    <!--Bean defination of EMAILRECV-->  
+    <form-bean name="emailrecvForm" type="org.apache.struts.validator.DynaValidatorActionForm"> 
+      <form-property name="emailrecv" type="com.swiftcorp.portal.emailrecv.dto.EmailrecvDTO"/>  
+      <form-property name="searchQuery" type="java.lang.String"/> 
+    </form-bean>  
+    
+  </form-beans>  
+  <!-- Global Exception Declarations -->  
+  <global-exceptions> 
+    <exception key="exception.BusinessRuleViolationException" type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" handler="com.swiftcorp.portal.common.CommonExceptionHandler"/>  
+    <exception key="exception.SystemException" type="com.swiftcorp.portal.common.exception.SystemException" handler="com.swiftcorp.portal.common.CommonExceptionHandler"/>  
+    <exception key="exception.Exception" type="java.lang.Exception" handler="com.swiftcorp.portal.common.CommonExceptionHandler"/> 
+  </global-exceptions>  
+  <global-forwards> 
+    <forward name="error" path="/Common/Error/index.jsp"/>  
+    <forward name="ext_form_submit_exception" path="/Common/Error/extError.jsp"/>  
+    <forward name="ext_form_add_success" path="/Common/Success/Add/success.jsp"/>  
+    <forward name="user_home" path="/Home/User/index.jsp"/> 
+  </global-forwards>  
+  <action-mappings> 
+    <!-- 
+		=============================================================================
+									LOGIN
+		=============================================================================
+		-->  
+    <action path="/loginAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="loginForm" scope="session"> 
+      <forward name="prompt_login" path="/loginExt.jsp"/>  
+      <forward name="ext_test" path="/test.jsp"/>  
+      <forward name="login_success" path="/loginSuccess.jsp"/>  
+      <forward name="failure" path="/loginExt.jsp"/>  
+      <forward name="user_home" path="/Home/User/index.jsp"/>  
+      <forward name="user_role_functions" path="/Home/Leftbar/ExtUserLeftBar.jsp"/> 
+    </action>  
+    <!-- 
+		=============================================================================
+									USER 
+		=============================================================================
+		-->  
+    <action path="/userAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="userForm" validate="false" input="/User/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="operation.failure" path="/User/Modify/index.jsp"/>  
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="user.already.exist.same.code" path="/User/Modify/index.jsp"/>  
+      <forward name="user_home" path="/Home/User/index.jsp"/>  
+      <forward name="user_search_system_level" path="/User/Search/System/index.jsp"/>  
+      <forward name="ext_user_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=user"/>  
+      <forward name="user_search_group_level" path="/User/Search/System/index.jsp"/>  
+      <forward name="prompt_add_user" path="/User/Modify/index.jsp"/>  
+      <forward name="prompt_modify_user" path="/User/Modify/index.jsp"/>  
+      <forward name="prompt_pass_modify_user" path="/User/PassModify/index.jsp"/>  
+      <forward name="admin_search_system_level" path="/Admin/Search/index.jsp"/> 
+    </action>  
+    <action path="/userActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="userForm" validate="true" input="/User/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="operation.failure" path="/User/Modify/index.jsp"/>  
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="user.already.exist.same.code" path="/User/Modify/index.jsp"/>  
+      <forward name="user_home" path="/Home/User/index.jsp"/>  
+      <forward name="user_search_system_level" path="/User/Search/System/index.jsp"/>  
+      <forward name="ext_user_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=user"/>  
+      <forward name="user_search_group_level" path="/User/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_user" path="/User/Modify/index.jsp"/>  
+      <forward name="prompt_modify_user" path="/User/Modify/index.jsp"/>  
+      <forward name="prompt_pass_modify_user" path="/User/PassModify/index.jsp"/>  
+      <forward name="admin_search_system_level" path="/Admin/Search/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        ROLE
+	=============================================================================
+	-->  
+    <action path="/roleAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="roleForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Role/Modify/index.jsp"/>  
+      <forward name="role_search_system_level" path="/Role/Search/System/index.jsp"/>  
+      <forward name="role_search_group_level" path="/Role/Search/Group/index.jsp"/>  
+      <forward name="get_role_list" path="/Role/Search/System/RoleList.jsp"/>  
+      <forward name="prompt_add_role" path="/Role/Modify/index.jsp"/>  
+      <forward name="prompt_modify_role" path="/Role/Modify/index.jsp"/> 
+    </action>  
+    <action path="/roleActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="roleForm" validate="true" input="/Role/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Role/Modify/index.jsp"/>  
+      <forward name="role_search_system_level" path="/Role/Search/System/index.jsp"/>  
+      <forward name="role_search_group_level" path="/Role/Search/Group/index.jsp"/>  
+      <forward name="get_role_list" path="/Role/Search/System/RoleList.jsp"/>  
+      <forward name="prompt_add_role" path="/Role/Modify/index.jsp"/>  
+      <forward name="prompt_modify_role" path="/Role/Modify/index.jsp"/> 
+    </action>  
+    <action path="/roleFunctionAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="roleFunctionForm" validate="false" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="operation.failure" path="/User/Modify/index.jsp"/>  
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="user.already.exist.same.code" path="/User/Modify/index.jsp"/>  
+      <forward name="show_functions" path="/Role/Modify/RoleFunction.jsp"/>  
+      <forward name="get_role_function_list" path="/Role/Search/System/RoleFunctionList.jsp"/>  
+      <forward name="get_role_functions_list" path="/Role/Search/System/RoleFunctionMap.jsp"/>  
+      <forward name="user_search_system_level" path="/User/Search/System/index.jsp"/>  
+      <forward name="user_search_group_level" path="/User/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_user" path="/User/Modify/index.jsp"/>  
+      <forward name="prompt_modify_user" path="/User/Modify/index.jsp"/>  
+      <forward name="prompt_pass_modify_user" path="/User/PassModify/index.jsp"/>  
+      <forward name="admin_search_system_level" path="/Admin/Search/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        GROUP
+	=============================================================================
+	-->  
+    <action path="/groupAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="groupForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Group/Modify/index.jsp"/>  
+      <forward name="group_search_system_level" path="/Group/Search/System/index.jsp"/>  
+      <forward name="group_search_group_level" path="/Group/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_group" path="/Group/Modify/index.jsp"/>  
+      <forward name="prompt_modify_group" path="/Group/Modify/index.jsp"/>  
+      <forward name="prompt_modify_group_profile" path="/Group/Profile/index.jsp"/> 
+    </action>  
+    <action path="/groupActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="groupForm" validate="true" input="/Group/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Group/Modify/index.jsp"/>  
+      <forward name="group_search_system_level" path="/Group/Search/System/index.jsp"/>  
+      <forward name="group_search_group_level" path="/Group/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_group" path="/Group/Modify/index.jsp"/>  
+      <forward name="prompt_modify_group" path="/Group/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        GEO
+	=============================================================================
+	-->  
+    <action path="/geoAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="geoForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Geo/Modify/index.jsp"/>  
+      <forward name="geo_search_system_level" path="/Geo/Search/System/index.jsp"/>  
+      <forward name="geo_search_group_level" path="/Geo/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_geo" path="/Geo/Modify/index.jsp"/>  
+      <forward name="prompt_modify_geo" path="/Geo/Modify/index.jsp"/>  
+      <forward name="prompt_import_geo" path="/Geo/ImportData/index.jsp"/> 
+    </action>  
+    <action path="/geoActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="geoForm" validate="true" input="/Geo/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Geo/Modify/index.jsp"/>  
+      <forward name="geo_search_system_level" path="/Geo/Search/System/index.jsp"/>  
+      <forward name="geo_search_group_level" path="/Geo/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_geo" path="/Geo/Modify/index.jsp"/>  
+      <forward name="prompt_modify_geo" path="/Geo/Modify/index.jsp"/>  
+      <forward name="prompt_import_geo" path="/Geo/ImportData/index.jsp"/> 
+    </action>  
+      
+    <!--
+	=============================================================================
+                        HOME
+	=============================================================================
+	-->  
+    <action path="/homeAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="homeForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Home/Modify/index.jsp"/>  
+      <forward name="home_search_system_level" path="/Home/Search/System/index.jsp"/>  
+      <forward name="ext_home_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=home"/>  
+      <forward name="home_search_group_level" path="/Home/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_home" path="/Home/Modify/index.jsp"/>  
+      <forward name="prompt_modify_home" path="/Home/Modify/index.jsp"/> 
+    </action>  
+    <action path="/homeActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="homeForm" validate="true" input="/Home/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Home/Modify/index.jsp"/>  
+      <forward name="home_search_system_level" path="/Home/Search/System/index.jsp"/>  
+      <forward name="ext_home_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=home"/>  
+      <forward name="home_search_group_level" path="/Home/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_home" path="/Home/Modify/index.jsp"/>  
+      <forward name="prompt_modify_home" path="/Home/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        INFO
+	=============================================================================
+	-->  
+    <action path="/infoAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="infoForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Info/Modify/index.jsp"/>  
+      <forward name="info_search_system_level" path="/Info/Search/System/index.jsp"/>  
+      <forward name="ext_info_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=info"/>  
+      <forward name="info_search_group_level" path="/Info/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_info" path="/Info/Modify/index.jsp"/>  
+      <forward name="prompt_modify_info" path="/Info/Modify/index.jsp"/> 
+    </action>  
+    <action path="/infoActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="infoForm" validate="true" input="/Info/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Info/Modify/index.jsp"/>  
+      <forward name="info_search_system_level" path="/Info/Search/System/index.jsp"/>  
+      <forward name="ext_info_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=info"/>  
+      <forward name="info_search_group_level" path="/Info/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_info" path="/Info/Modify/index.jsp"/>  
+      <forward name="prompt_modify_info" path="/Info/Modify/index.jsp"/> 
+    </action>  
+      
+    <!--
+	=============================================================================
+                        MODULE
+	=============================================================================
+	-->  
+    <action path="/moduleAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="moduleForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Module/Modify/index.jsp"/>  
+      <forward name="module_search_system_level" path="/Module/Search/System/index.jsp"/>  
+      <forward name="ext_module_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=module"/>  
+      <forward name="module_search_group_level" path="/Module/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_module" path="/Module/Modify/index.jsp"/>  
+      <forward name="prompt_modify_module" path="/Module/Modify/index.jsp"/> 
+    </action>  
+    <action path="/moduleActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="moduleForm" validate="true" input="/Module/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Module/Modify/index.jsp"/>  
+      <forward name="module_search_system_level" path="/Module/Search/System/index.jsp"/>  
+      <forward name="ext_module_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=module"/>  
+      <forward name="module_search_group_level" path="/Module/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_module" path="/Module/Modify/index.jsp"/>  
+      <forward name="prompt_modify_module" path="/Module/Modify/index.jsp"/> 
+    </action>  
+      
+    <!--
+	=============================================================================
+                        MAILINFO
+	=============================================================================
+	-->  
+    <action path="/mailinfoAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="mailinfoForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Mailinfo/Modify/index.jsp"/>  
+      <forward name="mailinfo_search_system_level" path="/Mailinfo/Search/System/index.jsp"/>  
+      <forward name="ext_mailinfo_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=mailinfo"/>  
+      <forward name="mailinfo_search_group_level" path="/Mailinfo/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_mailinfo" path="/Mailinfo/Modify/index.jsp"/>  
+      <forward name="prompt_modify_mailinfo" path="/Mailinfo/Modify/index.jsp"/>  
+      <forward name="mailinfo_initial_load" path="/Mailinfo/home/initial_load.jsp"/>  
+      <forward name="mailinfo_inbox" path="/Mailinfo/home/inbox.jsp"/>  
+      <forward name="mailinfo_check_mail" path="/Mailinfo/home/checkMail.jsp"/>  
+      <forward name="mailinfo_count_inbox" path="/Mailinfo/home/count_inbox.jsp"/>  
+      <forward name="mailinfo_company_inbox" path="/Mailinfo/home/company_inbox.jsp"/>  
+      <forward name="mailinfo_mail_dtl" path="/Mailinfo/home/mailDetails.jsp"/>  
+      <forward name="mailinfo_session_check" path="/Mailinfo/home/sessionCheck.jsp"/>  
+      <forward name="mailinfo_mark_as_read" path="/Mailinfo/home/markAsRead.jsp"/>  
+      <forward name="mailinfo_mark_as_unread" path="/Mailinfo/home/markAsUnRead.jsp"/>  
+      <forward name="mailinfo_send_mail" path="/Mailinfo/home/sendMail.jsp"/>  
+      <forward name="mailinfo_save_as_draft" path="/Mailinfo/home/save_as_draft.jsp"/>  
+      <forward name="mailinfo_attachments" path="/Mailinfo/home/attachment.jsp"/>  
+      <forward name="mailinfo_email_settings" path="/Mailinfo/home/emailSettings.jsp"/>  
+      <forward name="mailinfo_email_download_attachments" path="/Mailinfo/home/download.jsp"/>  
+      <forward name="mailinfo_email_search" path="/Mailinfo/home/mail_search.jsp"/>  
+      <forward name="mailinfo_email_share" path="/Mailinfo/home/share_email.jsp"/> 
+    </action>  
+    <action path="/mailinfoActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="mailinfoForm" validate="true" input="/Mailinfo/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Mailinfo/Modify/index.jsp"/>  
+      <forward name="mailinfo_search_system_level" path="/Mailinfo/Search/System/index.jsp"/>  
+      <forward name="ext_mailinfo_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=mailinfo"/>  
+      <forward name="mailinfo_search_group_level" path="/Mailinfo/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_mailinfo" path="/Mailinfo/Modify/index.jsp"/>  
+      <forward name="prompt_modify_mailinfo" path="/Mailinfo/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        EMAIL
+	=============================================================================
+	-->  
+    <action path="/emailAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Email/Modify/index.jsp"/>  
+      <forward name="email_search_system_level" path="/Email/Search/System/index.jsp"/>  
+      <forward name="ext_email_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=email"/>  
+      <forward name="email_search_group_level" path="/Email/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_email" path="/Email/Modify/index.jsp"/>  
+      <forward name="prompt_modify_email" path="/Email/Modify/index.jsp"/> 
+    </action>  
+    <action path="/emailActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailForm" validate="true" input="/Email/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Email/Modify/index.jsp"/>  
+      <forward name="email_search_system_level" path="/Email/Search/System/index.jsp"/>  
+      <forward name="ext_email_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=email"/>  
+      <forward name="email_search_group_level" path="/Email/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_email" path="/Email/Modify/index.jsp"/>  
+      <forward name="prompt_modify_email" path="/Email/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        EMAILDTL
+	=============================================================================
+	-->  
+    <action path="/emaildtlAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emaildtlForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emaildtl/Modify/index.jsp"/>  
+      <forward name="emaildtl_search_system_level" path="/Emaildtl/Search/System/index.jsp"/>  
+      <forward name="ext_emaildtl_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emaildtl"/>  
+      <forward name="emaildtl_search_group_level" path="/Emaildtl/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emaildtl" path="/Emaildtl/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emaildtl" path="/Emaildtl/Modify/index.jsp"/> 
+    </action>  
+    <action path="/emaildtlActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emaildtlForm" validate="true" input="/Emaildtl/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emaildtl/Modify/index.jsp"/>  
+      <forward name="emaildtl_search_system_level" path="/Emaildtl/Search/System/index.jsp"/>  
+      <forward name="ext_emaildtl_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emaildtl"/>  
+      <forward name="emaildtl_search_group_level" path="/Emaildtl/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emaildtl" path="/Emaildtl/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emaildtl" path="/Emaildtl/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        EMAILGROUP
+	=============================================================================
+	-->  
+    <action path="/emailgroupAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailgroupForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailgroup/Modify/index.jsp"/>  
+      <forward name="emailgroup_search_system_level" path="/Emailgroup/Search/System/index.jsp"/>  
+      <forward name="ext_emailgroup_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailgroup"/>  
+      <forward name="emailgroup_search_group_level" path="/Emailgroup/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailgroup" path="/Emailgroup/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailgroup" path="/Emailgroup/Modify/index.jsp"/> 
+    </action>  
+    <action path="/emailgroupActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailgroupForm" validate="true" input="/Emailgroup/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailgroup/Modify/index.jsp"/>  
+      <forward name="emailgroup_search_system_level" path="/Emailgroup/Search/System/index.jsp"/>  
+      <forward name="ext_emailgroup_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailgroup"/>  
+      <forward name="emailgroup_search_group_level" path="/Emailgroup/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailgroup" path="/Emailgroup/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailgroup" path="/Emailgroup/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        EMAILREFERANCE
+	=============================================================================
+	-->  
+    <action path="/emailreferanceAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailreferanceForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailreferance/Modify/index.jsp"/>  
+      <forward name="emailreferance_search_system_level" path="/Emailreferance/Search/System/index.jsp"/>  
+      <forward name="ext_emailreferance_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailreferance"/>  
+      <forward name="emailreferance_search_group_level" path="/Emailreferance/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailreferance" path="/Emailreferance/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailreferance" path="/Emailreferance/Modify/index.jsp"/> 
+    </action>  
+    <action path="/emailreferanceActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailreferanceForm" validate="true" input="/Emailreferance/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailreferance/Modify/index.jsp"/>  
+      <forward name="emailreferance_search_system_level" path="/Emailreferance/Search/System/index.jsp"/>  
+      <forward name="ext_emailreferance_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailreferance"/>  
+      <forward name="emailreferance_search_group_level" path="/Emailreferance/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailreferance" path="/Emailreferance/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailreferance" path="/Emailreferance/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        EMAILRECIPIENTS
+	=============================================================================
+	-->  
+    <action path="/emailrecipientsAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailrecipientsForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailrecipients/Modify/index.jsp"/>  
+      <forward name="emailrecipients_search_system_level" path="/Emailrecipients/Search/System/index.jsp"/>  
+      <forward name="ext_emailrecipients_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailrecipients"/>  
+      <forward name="emailrecipients_search_group_level" path="/Emailrecipients/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailrecipients" path="/Emailrecipients/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailrecipients" path="/Emailrecipients/Modify/index.jsp"/> 
+    </action>  
+    <action path="/emailrecipientsActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailrecipientsForm" validate="true" input="/Emailrecipients/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailrecipients/Modify/index.jsp"/>  
+      <forward name="emailrecipients_search_system_level" path="/Emailrecipients/Search/System/index.jsp"/>  
+      <forward name="ext_emailrecipients_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailrecipients"/>  
+      <forward name="emailrecipients_search_group_level" path="/Emailrecipients/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailrecipients" path="/Emailrecipients/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailrecipients" path="/Emailrecipients/Modify/index.jsp"/> 
+    </action>  
+    <!--
+	=============================================================================
+                        EMAILRECV
+	=============================================================================
+	-->  
+    <action path="/emailrecvAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailrecvForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailrecv/Modify/index.jsp"/>  
+      <forward name="emailrecv_search_system_level" path="/Emailrecv/Search/System/index.jsp"/>  
+      <forward name="ext_emailrecv_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailrecv"/>  
+      <forward name="emailrecv_search_group_level" path="/Emailrecv/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailrecv" path="/Emailrecv/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailrecv" path="/Emailrecv/Modify/index.jsp"/> 
+    </action>  
+    <action path="/emailrecvActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="emailrecvForm" validate="true" input="/Emailrecv/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Emailrecv/Modify/index.jsp"/>  
+      <forward name="emailrecv_search_system_level" path="/Emailrecv/Search/System/index.jsp"/>  
+      <forward name="ext_emailrecv_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=emailrecv"/>  
+      <forward name="emailrecv_search_group_level" path="/Emailrecv/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_emailrecv" path="/Emailrecv/Modify/index.jsp"/>  
+      <forward name="prompt_modify_emailrecv" path="/Emailrecv/Modify/index.jsp"/> 
+    </action>  
+    
+    <!--
+	=============================================================================
+                        MODULE
+	=============================================================================
+	-->  
+    <action path="/mobileAction" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="mobileForm" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Module/Modify/index.jsp"/>  
+      <forward name="module_search_system_level" path="/Module/Search/System/index.jsp"/>  
+      <forward name="ext_module_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=module"/>  
+      <forward name="module_search_group_level" path="/Module/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_module" path="/Module/Modify/index.jsp"/>  
+      <forward name="prompt_modify_module" path="/Module/Modify/index.jsp"/> 
+    </action>  
+    <action path="/mobileActionWithValidation" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method" name="mobileForm" validate="true" input="/Module/Modify/index.jsp" scope="session"> 
+      <exception type="com.swiftcorp.portal.common.exception.BusinessRuleViolationException" scope="request" key="already.exist.same.code" path="/Module/Modify/index.jsp"/>  
+      <forward name="module_search_system_level" path="/Module/Search/System/index.jsp"/>  
+      <forward name="ext_module_search_system_level" path="/Common/Search/ExtSearchResult.jsp?component=module"/>  
+      <forward name="module_search_group_level" path="/Module/Search/Group/index.jsp"/>  
+      <forward name="prompt_add_module" path="/Module/Modify/index.jsp"/>  
+      <forward name="prompt_modify_module" path="/Module/Modify/index.jsp"/> 
+    </action>
+  </action-mappings>  
+  <message-resources parameter="Messages"/>  
+  <message-resources key="Errors" parameter="Errors"/>  
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn"> 
+    <set-property property="pathnames" value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml"/> 
+  </plug-in> 
+</struts-config>
