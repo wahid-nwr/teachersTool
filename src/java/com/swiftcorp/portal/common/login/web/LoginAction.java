@@ -28,6 +28,7 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.validator.DynaValidatorActionForm;
+import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
 
 import com.swiftcorp.portal.common.ViewValueDTO;
 import com.swiftcorp.portal.common.dto.DTOConstants;
@@ -40,6 +41,7 @@ import com.swiftcorp.portal.common.login.dto.LoginDetailInfoDTO;
 import com.swiftcorp.portal.common.login.service.ILoginService;
 import com.swiftcorp.portal.common.service.IFunctionService;
 import com.swiftcorp.portal.common.util.DTOObjectReflectionUtil;
+import com.swiftcorp.portal.common.util.DocxUtil;
 import com.swiftcorp.portal.common.web.ForwardNames;
 import com.swiftcorp.portal.common.web.SESSION_KEYS;
 import com.swiftcorp.portal.geo.dto.GeoDTO;
@@ -207,6 +209,7 @@ public class LoginAction extends DispatchAction
 			//mapping.findForward("dcrinfo_add_success");
 			//response.sendRedirect("dcrinfo_add_success");
 			
+			
 		}
 		catch (UserNotFoundException e)
 		{
@@ -300,6 +303,12 @@ public class LoginAction extends DispatchAction
 		// GroupDTO group = (GroupDTO)
 		// groupService.get(loginInfo.getUser().getGroupId());
 		// session.setAttribute(SESSION_KEYS.GROUP, group);
+		System.out.println("hello 1 testing testing");
+		//DocxUtil.writeToDocFile("");
+		WordprocessingMLPackage template  = DocxUtil.getTemplate("/home/wahid/Downloads/DRAFT SRS_IDFMS V2.docx");
+		DocxUtil.replacePlaceholder(template, "hello wahid!", "Farm");
+		DocxUtil.writeDocxToStream(template, "/home/wahid/Documents/HelloWord1-1.docx");
+		System.out.println("hello 2 testing testing");
 		actionForward = mapping.findForward ( ForwardNames.USER_HOME );
 		
 		// since this month list and year list is needed to all other components
